@@ -8,7 +8,7 @@ Tento repozitář obsahuje sadu Docker instrukcí pro nasazení.
 
 Postup:
 
-1. Aktualizuj skripty pro generování formulářů pomocí ./bin/update-scripts.sh
+1. Aktualizuj skripty pro generování formulářů pomocí `./bin/update-scripts.sh`
 
 
 2. Spusť `docker-compose` s příslušným `.env.*` souborem. Příklad:
