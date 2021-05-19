@@ -10,6 +10,10 @@ services:
       - dm-record-manager-server
     environment:
       API_URL: "${RECORD_MANAGER_SERVER_URL}"
+      APP_TITLE: "Správce otevřených dat"
+      LANGUAGE: "cs"
+      NAVIGATOR_LANGUAGE: "false"
+      BASENAME: "/ofn-record-manager"
 
   dm-record-manager-server:
     image: 'docker.pkg.github.com/opendata-mvcr/ofn-record-manager/ofn-record-manager-server:latest'
