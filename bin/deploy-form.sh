@@ -32,9 +32,7 @@ mkdir -p $OUTPUT_DIR
 FILE=$OUTPUT_DIR/form-$ENTITY_NAME.json
 FORM_TEMPLATE="https://slovník.gov.cz/datový/$ENTITY_NAME/form-template"
 
-set -x
-
-curl -G -H 'Accept: text/json, text/plain, */*' \
+curl -v -G -H 'Accept: text/json, text/plain, */*' \
 	--data-urlencode "_pId=deploy-sample" \
 	--data-urlencode "sgovRepositoryUrl=$SGOV_SERVICE_URL" \
 	--data-urlencode "formGenRepositoryUrl=$RDF4J_SERVER/repositories/ofn-record-manager-formgen" \
@@ -43,5 +41,3 @@ curl -G -H 'Accept: text/json, text/plain, */*' \
 	--data-urlencode "_DformTemplate=$FORM_TEMPLATE" \
 	--data-urlencode "_DexecutionId=0" \
 	"$SPIPES_SERVICE/service" > $FILE
-
-set -x
