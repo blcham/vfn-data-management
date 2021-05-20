@@ -8,22 +8,26 @@ Tento repozitář obsahuje sadu Docker instrukcí pro nasazení.
 
 Postup:
 
-1. Aktualizuj skripty pro generování formulářů pomocí `./bin/update-scripts.sh`
+1. [Autentikuj se do služby GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-docker-registry#authenticating-to-github-packages). Příklad: 
+`cat GITHUB_PERSONAL_ACCESS_TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin`
+
+2. Aktualizuj skripty pro generování formulářů pomocí `./bin/update-scripts.sh`.
 
 
-2. Spusť `docker-compose` s příslušným `.env.*` souborem. Příklad:
+3. Spusť `docker-compose` s příslušným `.env.*` souborem. Příklad:
 
 ```
 docker-compose --env-file=.env.local up
 ```
 
-3. Nastav proměnné přikazového řádku pomocí `. ./bin/set-env.sh .env.*`.
+4. Nastav proměnné přikazového řádku pomocí ./bin/set-env.sh s příslušným `.env.*` souborem. Příklad:
+`./bin/set-env.sh .env.local`.
 
-4. Vytvoř 2 RDF4J repozitáře se jménem ofn-form-manager-app a ofn-form-manager-formgen puštením skriptu ./bin/rdf4j-create-repositories.sh  (alternativně je možné využít RDF4J server UI z adresy http://localhost:8888/rdf4j-workbench)
+5. Vytvoř 2 RDF4J repozitáře se jménem ofn-form-manager-app a ofn-form-manager-formgen puštením skriptu `./bin/rdf4j-create-repositories.sh`  (alternativně je možné využít RDF4J server UI z adresy http://localhost:8888/rdf4j-workbench)
 
-5. Vygeneruj formuláře pro 4 předdefinované OFN pomocí `./bin/deploy-all-forms.sh`.
+6. Vygeneruj formuláře pro 4 předdefinované OFN pomocí `./bin/deploy-all-forms.sh`.
 
-6. Prihlaš se do aplikace pomocí uživatelkého jména admin a hesla "5y5t3mAdm1n." a následně heslo změn.
+7. Prihlaš se do aplikace pomocí uživatelkého jména admin a hesla "5y5t3mAdm1n." a následně heslo změn.
 
 
 -----
