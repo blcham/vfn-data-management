@@ -12,7 +12,7 @@ CLEAR_REPOSITORY=false
 TEMPLATES_DIR=./scripts/sgov-forms/config
 
 if $CLEAR_REPOSITORY; then
-	rdf4j-deploy-context.sh -R -C 'text/turtle' -s $RDF4J_SERVER -r $FORMGEN_REPOSITORY empty.ttl
+	./bin/rdf4j-deploy-context.sh -R -C 'text/turtle' -s $RDF4J_SERVER -r $FORMGEN_REPOSITORY empty.ttl
 fi
 
 ls $TEMPLATES_DIR/d*-form-template.ttl  | while read FILE; do
@@ -21,5 +21,5 @@ ls $TEMPLATES_DIR/d*-form-template.ttl  | while read FILE; do
 		echo "WARN: Unable to find ontology IRI in file \"$FILE\"."
 		continue;
 	fi
-	rdf4j-deploy-context.sh -R -C 'text/turtle' -s $RDF4J_SERVER -r $FORMGEN_REPOSITORY -c $GRAPH $FILE $TEMPLATES_DIR/shared-form-template.ttl
+	./bin/rdf4j-deploy-context.sh -R -C 'text/turtle' -s $RDF4J_SERVER -r $FORMGEN_REPOSITORY -c $GRAPH $FILE $TEMPLATES_DIR/shared-form-template.ttl
 done
