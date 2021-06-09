@@ -7,6 +7,7 @@
 #   - redeploys <SERVICE>, e.g. ./redeploy dm-ofn-record-manager, using the properties from the .env.development file
 DIR=$(dirname $(readlink -m $0))
 cd $DIR
+echo "INFO: `date +%F-%H:%M:%S` -- redeploy script called with parameters '$*'." >> redeploy.log
 git pull
 exit
 
