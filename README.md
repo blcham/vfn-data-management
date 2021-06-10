@@ -4,8 +4,7 @@ Správa dat slouží k tvorbě dat dle [Sémantického slovníku pojmů](https:/
 
 ## Nasazení Správce dat
 
-Tento repozitář obsahuje sadu instrukcí pro nasazení. Predpokládá se, že je nainstalován docker-compose 
-a skript `rdfpipe` (v debiane lze nainstalovat například pomocí `apt install python-rdflib-tools`).
+Tento repozitář obsahuje sadu instrukcí pro nasazení. Predpokládá se, že je nainstalován docker-compose, skript `rdfpipe` (v debiane lze nainstalovat například pomocí `apt install python-rdflib-tools`), perl module URI::Escape (v debiane lze nainstalovat například pomocí `apt install make; cpan URI::Escape`) .
 
 Postup:
 
