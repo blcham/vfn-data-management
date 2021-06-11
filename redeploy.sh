@@ -13,6 +13,7 @@ git pull
 #exit
 
 
+
 ENV_FILE="${ENV_FILE:-.env.local}"
 SERVICE="${1:-}"
 cat /etc/nginx/conf.d/gh-token | docker login -u jakubklimek --password-stdin docker.pkg.github.com
