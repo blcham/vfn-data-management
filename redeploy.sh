@@ -18,7 +18,7 @@ SERVICE="${1:-}"
 cat /etc/nginx/conf.d/gh-token | docker login -u jakubklimek --password-stdin docker.pkg.github.com
 #cat github.auth | docker login -u blcham --password-stdin docker.pkg.github.com
 echo "Deploying $SERVICE"
-docker-compose --env-file=$ENV_FILE pull $SERVICE
+/usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
 echo "Pulled $SERVICE"
-docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
+/usr/local/bin/docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
 echo "Restarted $SERVICE"
