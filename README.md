@@ -35,7 +35,7 @@ docker-compose --env-file=.env.local up
 docker-compose restart
 ```
 
-8. Prihlaš se do aplikace bežící na `http://localhost:4000` pomocí uživatelkého jména admin a hesla "5y5t3mAdm1n." 
+8. Prihlaš se do aplikace bežící na `http://localhost:4000` pomocí uživatelkého jména "admin" a hesla "5y5t3mAdm1n." 
    a následně heslo změn.
 
 
