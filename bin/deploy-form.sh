@@ -20,6 +20,8 @@ OUTPUT_DIR=./target/generated-forms
 
 ENTITY_NAME=$1
 
+set -u
+
 echo "==================================="
 echo "INFO: s-pipes url $SPIPES_SERVICE"
 echo "INFO: rdf4j-server url $RDF4J_SERVER"
