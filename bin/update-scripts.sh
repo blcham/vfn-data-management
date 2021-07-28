@@ -16,7 +16,7 @@ if [ ! -d ${SPIPES_MODULES} ]; then
 else 
 	cd ${SPIPES_MODULES}	
 	git pull
-	cd
+	cd -
 fi
 
 if [ ! -d ${SGOV_SFORMS} ]; then
@@ -24,5 +24,5 @@ if [ ! -d ${SGOV_SFORMS} ]; then
 else 
 	cd ${SGOV_SFORMS}	
 	git pull
-	cd
+	cd -
 fi
