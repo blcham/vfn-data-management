@@ -21,7 +21,8 @@ echo "Pulled $SERVICE"
 docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
 echo "Restarted $SERVICE"
 
-if [ "$SERVICE" = "dm-s-pipes-engine" ]; then
+
+if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	echo "INFO: `date +%F-%H:%M:%S` -- updating s-pipes-engine module." >> redeploy.log
 	./bin/update-scripts.sh
 	. ./bin/set-env.sh $ENV_FILE
