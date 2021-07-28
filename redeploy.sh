@@ -23,8 +23,8 @@ echo "Restarted $SERVICE"
 
 
 if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
-	echo "INFO: `date +%F-%H:%M:%S` -- updating s-pipes-engine module." >> redeploy.log
-	./bin/update-scripts.sh
-	. ./bin/set-env.sh $ENV_FILE
-	./bin/deploy-all-forms.sh
+	echo "INFO: `date +%F-%H:%M:%S` -- updating s-pipes-engine module ..." >> redeploy.log
+	
+	# execute update on background so webhook won't time-out
+	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) &
 fi
