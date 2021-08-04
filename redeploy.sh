@@ -15,6 +15,17 @@ ENV_FILE="${ENV_FILE:-.env.production}"
 SERVICE="${1:-}"
 cat /etc/nginx/conf.d/gh-token | docker login -u jakubklimek --password-stdin docker.pkg.github.com
 #cat github.auth | docker login -u blcham --password-stdin docker.pkg.github.com
+if [ "$SERVICE" = "dm-prepared-forms" ]; then
+	# TODO not systematic approach
+	echo "INFO: `date +%F-%H:%M:%S` -- updating from prepared forms ..." >> redeploy.log
+
+	# execute update on background so webhook won't time-out
+	. ./bin/set-env.sh $ENV_FILE
+	./bin/update-scripts.sh
+	./bin/deploy-prepared-forms.sh
+	exit
+fi
+
 echo "Deploying $SERVICE"
 docker-compose --env-file=$ENV_FILE pull $SERVICE
 echo "Pulled $SERVICE"
@@ -29,10 +40,3 @@ if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) &
 fi
 
-# TODO not systematic
-if [ "$SERVICE" = "dm-prepared-forms" ]; then
-	echo "INFO: `date +%F-%H:%M:%S` -- updating from prepared forms ..." >> redeploy.log
-
-	# execute update on background so webhook won't time-out
-	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-prepared-forms.sh ) &
-fi
