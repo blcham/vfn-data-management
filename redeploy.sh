@@ -28,3 +28,11 @@ if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	# execute update on background so webhook won't time-out
 	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) &
 fi
+
+# TODO not systematic
+if [ "$SERVICE" = "dm-prepared-forms" ]; then
+	echo "INFO: `date +%F-%H:%M:%S` -- updating from prepared forms ..." >> redeploy.log
+
+	# execute update on background so webhook won't time-out
+	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-prepared-forms.sh ) &
+fi
