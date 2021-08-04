@@ -2,4 +2,4 @@
 
 ENV_FILE=$1
 
-export $(cat $ENV_FILE | xargs)
+export $(cat $ENV_FILE | sed 's/\s*#.*//g' | xargs)
