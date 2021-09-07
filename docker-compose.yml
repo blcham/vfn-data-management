@@ -29,6 +29,8 @@ services:
       repositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/ofn-record-manager-app"
       formGenRepositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/ofn-record-manager-formgen"
       formGenServiceUrl: "${FORMGEN_SERVICE_URL}"
+    volumes:
+      - ./logs/dm-record-manager-server:/usr/local/tomcat/logs
 
   dm-s-pipes-engine:
     image: 'docker.pkg.github.com/kbss-cvut/s-pipes/s-pipes-engine:latest'
@@ -54,7 +56,7 @@ services:
       - JAVA_OPTS=-Xms1g -Xmx4g
     volumes:
       - data:/var/rdf4j
-      - logs:/usr/local/tomcat/logs
+      - ./logs/dm-rdf4j:/usr/local/tomcat/logs
 
 volumes:
   data:
