@@ -42,6 +42,7 @@ services:
       - CONTEXTS_SCRIPTPATHS=/scripts
     volumes:
       - ./scripts:/scripts
+      - ./logs/dm-s-pipes-engine:/usr/local/tomcat/logs
 
   dm-rdf4j:
     image: 'eclipse/rdf4j-workbench:amd64-3.5.0'
