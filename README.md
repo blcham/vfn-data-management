@@ -56,7 +56,7 @@ chmod g+s .
 chgrp nginx .
 mkdir SLUZBA   # we must do it as docker on service run for unknown reason ignores "chmod g+s"
 ```
-Navíc u služby `dm-rdf4j` je potřeba nastavit práva pro zápis libovolného uživatele, tedy `chown o+w dm-rdf4j` (Důvodem je, že do logu zapisuje dedikovaný uživatel služby `dm-rdf4j`).
+Navíc u služby `dm-rdf4j` je potřeba nastavit práva pro zápis libovolného uživatele, tedy `chown o+w dm-rdf4j` (Důvodem je, že do logů zapisuje dedikovaný uživatel služby `dm-rdf4j`).
 
 -----
 
