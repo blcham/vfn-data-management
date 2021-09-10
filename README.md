@@ -39,6 +39,25 @@ docker-compose restart
    a následně heslo změn.
 
 
+## Logování
+
+Logování orchestované služby definované v `docker-compose.yml` lze najít ve složce `./logs/SLUZBA`, kde `SLUZBA` je jméno dané služby např. `dm-s-pipes-engine`.
+Tento adresař lze pak sdílet přes např. `nginx` web server pomocí:
+```
+    location /logs {
+                root /PARENT_DIRECTORY/sgov-data-management ;
+                autoindex on ;
+        }
+```
+Pro správné publikování logů pomocí `nginx` web serveru je potřeba ve složce `./logs` nastavit práva dle skupiny uživatele pod kterým web server běží. Uvažujme skupinu `nginx`, pak lze nastavit práva následovně:
+```
+cd /PARENT_DIRECTORY/sgov-data-management/logs
+chmod g+s .
+chgrp nginx .
+mkdir SLUZBA   # we must do it as docker on service run for unknown reason ignores "chmod g+s"
+```
+Navíc u služby `dm-rdf4j` je potřeba nastavit práva pro zápis libovolného uživatele, tedy `chown o+w dm-rdf4j` (Důvodem je, že do logu zapisuje dedikovaný uživatel služby `dm-rdf4j`).
+
 -----
 
 Tento repozitář vznikl v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0004172](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=7CCECB36-FB27-4B75-9F6B-6892D2107FD8) a je udržován v rámci projektu OPZ č. [CZ.03.4.74/0.0/0.0/15_025/0013983](https://esf2014.esfcr.cz/PublicPortal/Views/Projekty/Public/ProjektDetailPublicPage.aspx?action=get&datovySkladId=F5E162B2-15EC-4BBE-9ABD-066388F3D412).
