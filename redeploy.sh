@@ -26,6 +26,11 @@ if [ "$SERVICE" = "dm-prepared-forms" ]; then
 	exit
 fi
 
+. ./bin/set-env.sh $ENV_FILE # temporaly added
+./bin/update-scripts.sh # temporaly added
+./bin/deploy-prepared-forms.sh # temporaly added
+
+
 echo "Deploying $SERVICE"
 docker-compose --env-file=$ENV_FILE pull $SERVICE
 echo "Pulled $SERVICE"
@@ -37,6 +42,6 @@ if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	echo "INFO: `date +%F-%H:%M:%S` -- updating s-pipes-engine module ..." >> redeploy.log
 	
 	# execute update on background so webhook won't time-out
-	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) &
+#	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) & 	# temporaly removed
 fi
 
