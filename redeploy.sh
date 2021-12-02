@@ -33,6 +33,7 @@ fi
 
 
 echo $PATH >> $LOG_FILE
+export PATH=/usr/local/bin/
 echo "Deploying $SERVICE" | tee >> $LOG_FILE
 /usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
 echo "Pulled $SERVICE" | tee >> $LOG_FILE
