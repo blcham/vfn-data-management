@@ -32,10 +32,11 @@ fi
 ./bin/deploy-prepared-forms.sh # temporaly added
 
 
+echo $PATH >> $LOG_FILE
 echo "Deploying $SERVICE" | tee >> $LOG_FILE
-docker-compose --env-file=$ENV_FILE pull $SERVICE
+/usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
 echo "Pulled $SERVICE" | tee >> $LOG_FILE
-docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
+/usr/local/bin/docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
 echo "Restarted $SERVICE" | tee >> $LOG_FILE
 
 
