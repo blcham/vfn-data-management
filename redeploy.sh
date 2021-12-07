@@ -29,7 +29,9 @@ fi
 
 . ./bin/set-env.sh $ENV_FILE # temporaly added
 ./bin/update-scripts.sh # temporaly added
+echo "Deploying prepared forms ..." | tee >> $LOG_FILE
 ./bin/deploy-prepared-forms.sh # temporaly added
+echo "... done." | tee >> $LOG_FILE
 
 
 echo $PATH >> $LOG_FILE
@@ -47,4 +49,7 @@ if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	# execute update on background so webhook won't time-out
 #	( . ./bin/set-env.sh $ENV_FILE;  ./bin/update-scripts.sh; ./bin/deploy-all-forms.sh ) & 	# temporaly removed
 fi
+
+
+echo "Redeploy script returns sucessfully." | tee >> $LOG_FILE
 
