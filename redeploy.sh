@@ -9,8 +9,8 @@ DIR=$(dirname $(readlink -m $0))
 LOG_FILE=./logs/redeploy.log
 
 function log_info() {
-	DATE="`date +%F-%H:%M:%S`"
-	echo INFO: $DATE -- $* >> $LOG_FILE
+	TIMESTAMP="`date +%F--%H:%M:%S`"
+	echo INFO: $TIMESTAMP -- $* >> $LOG_FILE
 }
 
 cd $DIR
