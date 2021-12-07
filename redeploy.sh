@@ -29,18 +29,17 @@ fi
 
 . ./bin/set-env.sh $ENV_FILE # temporaly added
 ./bin/update-scripts.sh # temporaly added
-echo "Deploying prepared forms ..." | tee >> $LOG_FILE
+echo "Deploying prepared forms ..."  >> $LOG_FILE
 ./bin/deploy-prepared-forms.sh # temporaly added
-echo "... done." | tee >> $LOG_FILE
+echo "... done." >> $LOG_FILE
 
 
-echo $PATH >> $LOG_FILE
-export PATH=/usr/local/bin/
-echo "Deploying $SERVICE" | tee >> $LOG_FILE
+export PATH=/usr/local/bin/	# workaround to not be able to run docker compose
+echo "Deploying $SERVICE" >> $LOG_FILE
 /usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
-echo "Pulled $SERVICE" | tee >> $LOG_FILE
+echo "Pulled $SERVICE" >> $LOG_FILE
 /usr/local/bin/docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
-echo "Restarted $SERVICE" | tee >> $LOG_FILE
+echo "Restarted $SERVICE" >> $LOG_FILE
 
 
 if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
@@ -51,5 +50,5 @@ if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 fi
 
 
-echo "Redeploy script returns sucessfully." | tee >> $LOG_FILE
+echo "Redeploy script returns sucessfully."  >> $LOG_FILE
 
