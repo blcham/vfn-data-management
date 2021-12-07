@@ -37,7 +37,7 @@ fi
 log_info "Updating scripts ..."
 ./bin/update-scripts.sh # temporaly added
 log_info "Deploying prepared forms ..."
-./bin/deploy-prepared-forms.sh # temporaly added
+./bin/deploy-prepared-forms.sh >> $LOG_FILE 2>&1 # temporaly added
 
 
 export PATH="/usr/local/bin/:/bin"	# workaround to not be able to run docker compose
