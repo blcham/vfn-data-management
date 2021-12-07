@@ -40,7 +40,7 @@ log_info "Deploying prepared forms ..."
 ./bin/deploy-prepared-forms.sh # temporaly added
 
 
-export PATH=/usr/local/bin/	# workaround to not be able to run docker compose
+export PATH="/usr/local/bin/:/bin"	# workaround to not be able to run docker compose
 log_info "Running docker-compose pull $SERVICE ..."
 /usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
 log_info "Running docker-compose up $SERVICE ..."
