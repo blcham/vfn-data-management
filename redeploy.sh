@@ -13,6 +13,8 @@ function log_info() {
 	echo INFO: $TIMESTAMP -- $* >> $LOG_FILE
 }
 
+echo $PATH >> $LOG_FILE
+
 cd $DIR
 log_info "Redeploy script called with variable ENV_FILE=$ENV_FILE."
 log_info "Redeploy script called with parameters '$*'."
