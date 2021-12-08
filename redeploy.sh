@@ -9,7 +9,7 @@ DIR=$(dirname $(readlink -m $0))
 LOG_FILE=./logs/redeploy.log
 
 function log_info() {
-	TIMESTAMP="`date +%F--%H:%M:%S`"
+	TIMESTAMP="`date +%F-%H:%M:%S`"
 	echo INFO: $TIMESTAMP -- $* >> $LOG_FILE
 }
 
@@ -37,7 +37,7 @@ fi
 log_info "Updating scripts ..."
 ./bin/update-scripts.sh # temporaly added
 log_info "Deploying prepared forms ..."
-./bin/deploy-prepared-forms.sh >> $LOG_FILE # temporaly added
+./bin/deploy-prepared-forms.sh # temporaly added
 
 
 export PATH="/usr/local/bin/:/bin"	# workaround to not be able to run docker compose
