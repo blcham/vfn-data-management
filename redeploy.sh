@@ -5,8 +5,13 @@
 #   - redeploys <SERVICE>, e.g. ./redeploy dm-ofn-record-manager
 # ENV_FILE=.env.development ./redeploy.sh <SERVICE>
 #   - redeploys <SERVICE>, e.g. ./redeploy dm-ofn-record-manager, using the properties from the .env.development file
+
+# workaround to not be able to run docker compose
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"	
+
 DIR=$(dirname $(readlink -m $0))
 LOG_FILE=./logs/redeploy.log
+
 
 function log_info() {
 	TIMESTAMP="`date +%F-%H:%M:%S`"
@@ -42,7 +47,6 @@ log_info "Deploying prepared forms ..."
 ./bin/deploy-prepared-forms.sh # temporaly added
 
 
-export PATH="/usr/local/bin/:/bin"	# workaround to not be able to run docker compose
 log_info "Running docker-compose pull $SERVICE ..."
 /usr/local/bin/docker-compose --env-file=$ENV_FILE pull $SERVICE
 log_info "Running docker-compose up $SERVICE ..."
