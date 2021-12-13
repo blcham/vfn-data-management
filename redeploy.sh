@@ -52,6 +52,10 @@ log_info "Running docker-compose pull $SERVICE ..."
 log_info "Running docker-compose up $SERVICE ..."
 /usr/local/bin/docker-compose --env-file=$ENV_FILE up --force-recreate --build -d $SERVICE
 
+/usr/local/bin/docker-compose --env-file=$ENV_FILE pull 
+/usr/local/bin/docker-compose --env-file=$ENV_FILE up --force-recreate --build -d 
+
+
 
 if [ "$SERVICE" = "dm-s-pipes-engine" -o -z "$SERVICE" ]; then
 	log_info "Updating s-pipes-engine module ..."
