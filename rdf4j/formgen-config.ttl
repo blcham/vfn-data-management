@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rep:Repository;
-  rep:repositoryID "ofn-record-manager-formgen";
+  rep:repositoryID "record-manager-formgen";
   rep:repositoryImpl [
       rep:repositoryType "openrdf:SailRepository";
       sr:sailImpl [
@@ -16,4 +16,4 @@
           ns:tripleIndexes "spoc,posc"
         ]
     ];
-  rdfs:label "Form generation related data for OFN record manager" .
+  rdfs:label "Form generation related data for record manager" .

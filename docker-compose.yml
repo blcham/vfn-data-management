@@ -26,8 +26,8 @@ services:
       - dm-s-pipes-engine
       - dm-rdf4j
     environment:
-      repositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/ofn-record-manager-app"
-      formGenRepositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/ofn-record-manager-formgen"
+      repositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/record-manager-app"
+      formGenRepositoryUrl: "http://dm-rdf4j:8080/rdf4j-server/repositories/record-manager-formgen"
       formGenServiceUrl: "${FORMGEN_SERVICE_URL}"
     volumes:
       - ./logs/dm-record-manager-server:/usr/local/tomcat/logs

@@ -37,9 +37,9 @@ FORM_TEMPLATE="https://slovník.gov.cz/datový/$ENTITY_NAME/form-template"
 curl -v -G -H 'Accept: text/json, text/plain, */*' \
 	--data-urlencode "_pId=deploy-sample" \
 	--data-urlencode "sgovRepositoryUrl=$SGOV_SERVICE_URL" \
-	--data-urlencode "formGenRepositoryUrl=$RDF4J_SERVER/repositories/ofn-record-manager-formgen" \
+	--data-urlencode "formGenRepositoryUrl=$RDF4J_SERVER/repositories/record-manager-formgen" \
 	--data-urlencode "recordGraphId=http://vfn.cz/ontologies/study-manager/formGen-sample" \
-	--data-urlencode "repositoryUrl=$RDF4J_SERVER/repositories/ofn-record-manager-app" \
+	--data-urlencode "repositoryUrl=$RDF4J_SERVER/repositories/record-manager-app" \
 	--data-urlencode "_DformTemplate=$FORM_TEMPLATE" \
 	--data-urlencode "_DexecutionId=0" \
 	"$SPIPES_SERVICE/service" > $FILE

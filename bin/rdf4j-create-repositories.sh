@@ -1,8 +1,8 @@
 #!/bin/bash
 
 RDF4J_SERVER=http://localhost:8888/rdf4j-server
-APP_REPOSITORY_NAME=ofn-record-manager-app
-FORMGEN_REPOSITORY_NAME=ofn-record-manager-formgen
+APP_REPOSITORY_NAME=record-manager-app
+FORMGEN_REPOSITORY_NAME=record-manager-formgen
 CONTENT_TYPE='text/turtle'
 
 echo "INFO: Creating repository $FORMGEN_REPOSITORY_NAME ..."

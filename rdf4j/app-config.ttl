@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a rep:Repository;
-  rep:repositoryID "ofn-record-manager-app";
+  rep:repositoryID "record-manager-app";
   rep:repositoryImpl [
       rep:repositoryType "openrdf:SailRepository";
       sr:sailImpl [
@@ -16,4 +16,4 @@
           ns:tripleIndexes "spoc,posc"
         ]
     ];
-  rdfs:label "OFN record manager application data" .
+  rdfs:label "Record manager application data" .

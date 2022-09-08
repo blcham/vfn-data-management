@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RDF4J_SERVER=http://localhost:8888/rdf4j-server
-FORMGEN_REPOSITORY=ofn-record-manager-formgen
+FORMGEN_REPOSITORY=record-manager-formgen
 
 echo "==================================="
 echo "INFO: rdf4j-server url $RDF4J_SERVER"

@@ -24,7 +24,7 @@ docker-compose --env-file=.env.local up
 4. Nastav proměnné přikazového řádku pomocí ./bin/set-env.sh s příslušným `.env.*` souborem. Příklad:
 `. ./bin/set-env.sh .env.local`.
 
-5. Vytvoř 2 RDF4J repozitáře se jménem ofn-form-manager-app a ofn-form-manager-formgen puštením skriptu 
+5. Vytvoř 2 RDF4J repozitáře se jménem record-manager-app a record-manager-formgen puštením skriptu 
    `./bin/rdf4j-create-repositories.sh`  
    (alternativně je možné využít RDF4J server UI z adresy http://localhost:8888/rdf4j-workbench)
 
