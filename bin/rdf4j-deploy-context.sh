@@ -67,7 +67,7 @@ if [ "$APPEND" = false ] ; then
    TEMP_FILE=`tempfile`
    QUERY_PARAMS="context=$GRAPH"
    if [ ! "$GRAPH" ]; then QUERY_PARAMS= ;  fi
-   curl $REPOSITORY_URL/statements?$QUERY_PARAMS -v -X DELETE &> $TEMP_FILE
+   curl $REPOSITORY_URL/statements --data-urlencode "$QUERY_PARAMS" -v -X DELETE &> $TEMP_FILE
    cat $TEMP_FILE | grep "HTTP/1.1 204" &>/dev/null && echo 'INFO:  clearing graph was sucessfull'  
    cat $TEMP_FILE | grep "HTTP/1.1 204" &>/dev/null || ( echo 'ERROR:  clearing graph failed. Output of the process : '; cat $TEMP_FILE )
 fi 
@@ -80,7 +80,7 @@ do
    QUERY_PARAMS="context=$GRAPH"
    if [ ! "$GRAPH" ]; then QUERY_PARAMS= ;  fi
   
-   wget --method POST --header "Content-Type: $CONTENT_TYPE"  --body-file="$FILE"  --output-document - --server-response $REPOSITORY_URL/statements?$QUERY_PARAMS  &> $TEMP_FILE
+   wget --method POST --header "Content-Type: $CONTENT_TYPE"  --body-file="$FILE"  --output-document - --server-response $REPOSITORY_URL/statements --data-urlencode "$QUERY_PARAMS"  &> $TEMP_FILE
    cat $TEMP_FILE | grep "HTTP/1.1 204" &>/dev/null && echo 'INFO:  sending data was sucessfull'  
    cat $TEMP_FILE | grep "HTTP/1.1 204" &>/dev/null || ( echo 'ERROR:  sending data failed. Output of the process : '; cat $TEMP_FILE )
 done;
