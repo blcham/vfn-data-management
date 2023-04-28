@@ -48,7 +48,6 @@ services:
 
   dm-s-pipes-engine:
     image: 'docker.pkg.github.com/blcham/vfn-model/vita-s-pipes-engine:latest'
-    #image: 'vita-s-pipes-engine:latest'
     container_name: ${RECORD_SET_NAME:-dm}-s-pipes-engine
     ports:
       - "8889:8080"
@@ -61,7 +60,7 @@ services:
       - ./logs/dm-s-pipes-engine:/usr/local/tomcat/logs
 
   dm-rdf4j:
-    image: 'eclipse/rdf4j-workbench:amd64-3.5.0'
+    image: 'eclipse/rdf4j-workbench:3.7.7'
     container_name: ${RECORD_SET_NAME:-dm}-rdf4j
     ports:
       - "8888:8080"
