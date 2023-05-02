@@ -26,7 +26,7 @@ services:
       - dm-record-manager-server
     environment:
       API_URL: "${RECORD_MANAGER_SERVER_URL}"
-      API_INFO: "${RECORD_MANAGER_API_INFO:-}"
+      APP_INFO: "${RECORD_MANAGER_APP_INFO:-}"
       APP_TITLE: "${RECORD_MANAGER_APP_TITLE:-Record manager}"
       LANGUAGE: "${LANGUAGE:-en}"
       NAVIGATOR_LANGUAGE: "false"
